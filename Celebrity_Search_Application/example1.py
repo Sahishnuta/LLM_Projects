@@ -1,7 +1,7 @@
 ## Integrate our code OpenAI API
 import os
 from constants import openai_key
-from langchain.llms import openai
+from langchain.llms import OpenAI
 from langchain import PromptTemplate
 from langchain.chains import LLMChain 
 from langchain.chains import SimpleSequentialChain
@@ -28,8 +28,8 @@ dob_memory = ConversationBufferMemory(input_key='person', memory_key='chat_histo
 descr_memory = ConversationBufferMemory(input_key='dob', memory_key='description_history')
 
 ## OPENAI LLMS
-llm = openai(temperature=0.8)
-chain = LLMChain(llm=llm, prompt=first_input_prompt, verbose=True, output_key='person', memory=person_memory))
+llm = OpenAI(temperature=0.8)
+chain = LLMChain(llm=llm, prompt=first_input_prompt, verbose=True, output_key='person', memory=person_memory)
 
 ## Prompt Templates
 second_input_prompt = PromptTemplate(
